@@ -12,14 +12,18 @@
 #'
 #' @examples
 #' animal_sounds("peacock","BlEuRk")
-animal_sounds <- function(animal, sound) {
+animal_sounds <- function(animal, sound = NULL) {
   check_arg(animal)
   check_arg(sound)
-  paste0("The ", animal, " goes ", sound, "!")
+  if (!is.null(sound)) {
+    paste0("The ", animal, " goes ", sound, "!")
+  } else {
+    paste0("The ", animal, " makes no sound.")
+  }
 }
 
 check_arg <- function(arg){
-  if (!rlang::is_character(arg, n = 1)) {
+  if (!is.null(arg) & !rlang::is_character(arg, n = 1)) {
     cli::cli_abort(
       c("{.var arg} must be a single string!",
         "i" = "It was {.type {arg}} of length {length(arg)} instead."),
