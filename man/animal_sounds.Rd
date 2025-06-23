@@ -12,11 +12,11 @@ animal_sounds(animal, sound)
 \item{sound}{the sound made by an animal (a single character string)}
 }
 \value{
-A string like this: "The (animal) goes (sound)"
+A string like this: "The \{animal\} goes \{sound\}!"
 }
 \description{
 Tell us what sounds an animal makes
 }
 \examples{
-animal_sounds("peacock","BlEuRk!")
+animal_sounds("peacock","BlEuRk")
 }
