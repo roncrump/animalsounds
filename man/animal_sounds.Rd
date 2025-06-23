@@ -2,7 +2,7 @@
 % Please edit documentation in R/animal_sounds.R
 \name{animal_sounds}
 \alias{animal_sounds}
-\title{Tell us what sounds an animal makes}
+\title{Tell us what sound an animal makes}
 \usage{
 animal_sounds(animal, sound)
 }
@@ -15,7 +15,10 @@ animal_sounds(animal, sound)
 A string like this: "The \{animal\} goes \{sound\}!"
 }
 \description{
-Tell us what sounds an animal makes
+Print the sound that an animal makes in the console.
+}
+\details{
+This is an alias to \code{\link[=paste0]{paste0()}} but not to \code{\link[DEoptimR:JDEoptim]{DEoptimR::JDEoptim()}} or \link[DEoptimR:JDEoptim]{DE}
 }
 \examples{
 animal_sounds("peacock","BlEuRk")
