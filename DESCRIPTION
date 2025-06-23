@@ -13,3 +13,6 @@ BugReports: https://github.com/roncrump/animalsounds/issues
 Imports: 
     cli,
     rlang
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
