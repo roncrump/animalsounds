@@ -1,0 +1,40 @@
+---
+title: "animalsounds"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{animalsounds}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(animalsounds)
+```
+
+## Installation
+You can install the animalsounds package using:
+``` r
+# install.packages("pak")
+pak::pak("roncrump/animalsounds")
+```
+
+## Usage
+
+The highly optimised function can handle the situations when an animal makes
+a sound:
+
+```{r}
+animal_sounds("dog","woof")
+```
+
+And also surprisingly quiet animals:
+```{r}
+animal_sounds("giraffe")
+```
