@@ -13,20 +13,27 @@
 #' @examples
 #' animal_sounds("peacock","BlEuRk")
 animal_sounds <- function(animal, sound = NULL) {
+
   check_arg(animal)
+
   if (is.null(sound)) {
     return(paste0("The ", animal, " makes no sound."))
   }
+
   check_arg(sound)
+
   paste0("The ", animal, " goes ", sound, "!")
 }
 
 check_arg <- function(arg){
   if (!is.null(arg) & !rlang::is_character(arg, n = 1)) {
     cli::cli_abort(
-      c("{.var arg} must be a single string!",
-        "i" = "It was {.type {arg}} of length {length(arg)} instead."),
-      class = 'error_single_string_expected'
+      # all these {...} are cli syntax. Cute.
+      c("{.var {rlang::caller_arg(arg)}} must be a single string!",
+        "i" = "It was {.type {arg}} of length {length(arg)} instead.",
+        "i" = "You typed {arg}."),
+      call = rlang::caller_env(),
+      class = 'error_not_single_string'
     )
   }
 }
