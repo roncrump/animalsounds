@@ -13,25 +13,12 @@
 #' @examples
 #' animal_sounds("peacock","BlEuRk")
 animal_sounds <- function(animal, sound = NULL) {
-  if (!rlang::is_character(animal, n = 1)) {
-    cli::cli_abort(
-      c("{.var animal} must be a single string!",
-        "i" = "It was {.type {animal}} of length {length(animal)} instead."),
-      class = 'error_single_string_expected'
-    )
+  check_arg(animal)
+  if (is.null(sound)) {
+    return(paste0("The ", animal, " makes no sound."))
   }
-  if (!is.null(sound) & !rlang::is_character(sound, n = 1)) {
-    cli::cli_abort(
-      c("{.var sound} must be a single string!",
-        "i" = "It was {.type {sound}} of length {length(sound)} instead."),
-      class = 'error_single_string_expected'
-    )
-  }
-  if (!is.null(sound)) {
-    paste0("The ", animal, " goes ", sound, "!")
-  } else {
-    paste0("The ", animal, " makes no sound.")
-  }
+  check_arg(sound)
+  paste0("The ", animal, " goes ", sound, "!")
 }
 
 check_arg <- function(arg){
